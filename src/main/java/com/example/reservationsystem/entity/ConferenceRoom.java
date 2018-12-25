@@ -1,5 +1,7 @@
 package com.example.reservationsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -41,6 +43,11 @@ public class ConferenceRoom {
 
     @OneToOne(mappedBy = "conference_room", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private RoomEquipment roomEquipment;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "organization_id", nullable = false)
+    private Organization organization;
 
     public long getId() {
         return id;
@@ -128,5 +135,13 @@ public class ConferenceRoom {
         }
 
         this.roomEquipment = roomEquipment;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 }

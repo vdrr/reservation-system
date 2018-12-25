@@ -1,6 +1,7 @@
 package com.example.reservationsystem.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "organization")
@@ -13,12 +14,23 @@ public class Organization {
     @Column(name = "name", unique = true)
     private String name;
 
+    @OneToMany(mappedBy = "organization")
+    private List<ConferenceRoom> conferenceRooms;
+
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<ConferenceRoom> getConferenceRooms() {
+        return conferenceRooms;
+    }
+
+    public void setConferenceRooms(List<ConferenceRoom> conferenceRooms) {
+        this.conferenceRooms = conferenceRooms;
     }
 
     public String getName() {
