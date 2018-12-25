@@ -8,7 +8,10 @@ import javax.validation.constraints.NotNull;
 public class ConferenceRoom {
 
     @Id
-    @Column(name = "name")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "name", unique = true)
     private String name;
 
     @Column(name="identifier")
@@ -38,6 +41,14 @@ public class ConferenceRoom {
 
     @OneToOne(mappedBy = "conference_room", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private RoomEquipment roomEquipment;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

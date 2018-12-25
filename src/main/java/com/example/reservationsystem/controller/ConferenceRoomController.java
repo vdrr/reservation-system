@@ -13,13 +13,18 @@ public class ConferenceRoomController {
         return null;
     }
 
-    @RequestMapping(path = "/room/{name}", method = RequestMethod.GET)
-    public ConferenceRoom getRoom(@PathVariable String name) {
+    @RequestMapping(path = "/room/{id}", method = RequestMethod.GET)
+    public ConferenceRoom getRoom(@PathVariable long id) {
         return null;
     }
 
-    @RequestMapping(path = "/room/{name}",method = RequestMethod.DELETE)
-    public void removeRoom(@PathVariable String name) {
+    @RequestMapping(path = "/room/byname/{name}", method = RequestMethod.GET)
+    public ConferenceRoom getRoomByName(@PathVariable String name) {
+        return null;
+    }
+
+    @RequestMapping(path = "/room/{id}",method = RequestMethod.DELETE)
+    public void removeRoom(@PathVariable long id) {
 
     }
 
