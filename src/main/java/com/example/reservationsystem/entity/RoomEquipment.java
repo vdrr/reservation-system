@@ -1,7 +1,10 @@
 package com.example.reservationsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
+@Entity
 @Table(name = "room_equipment")
 public class RoomEquipment {
 
@@ -16,7 +19,7 @@ public class RoomEquipment {
     private boolean hasPhone;
 
     @Column(name = "internal_number")
-    private short internalNumber;
+    private Short internalNumber;
 
     @Column(name = "external_number")
     private String externalNumber;
@@ -24,6 +27,7 @@ public class RoomEquipment {
     @Column(name = "connectionInterface")
     private String connectionInterface;
 
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "conference_room_id")
     private ConferenceRoom conferenceRoom;
@@ -52,11 +56,11 @@ public class RoomEquipment {
         this.hasPhone = hasPhone;
     }
 
-    public short getInternalNumber() {
+    public Short getInternalNumber() {
         return internalNumber;
     }
 
-    public void setInternalNumber(short internalNumber) {
+    public void setInternalNumber(Short internalNumber) {
         this.internalNumber = internalNumber;
     }
 
