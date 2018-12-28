@@ -33,7 +33,7 @@ public class OrganizationController {
         return organizationService.getAllOrganizations();
     }
 
-    @RequestMapping(path = "/", method = RequestMethod.POST)
+    @RequestMapping(path = "", method = RequestMethod.POST)
     public Organization addOrganization(@RequestBody Organization organization) {
         return organizationService.addOrganization(organization);
     }
@@ -43,8 +43,9 @@ public class OrganizationController {
         organizationService.removeOrganization(id);
     }
 
-    @RequestMapping(path = "/", method = RequestMethod.PUT)
-    public Organization updateOrganization(@RequestBody Organization organization) {
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    public Organization updateOrganization(@PathVariable long id, @RequestBody Organization organization) {
+        organization.setId(id);
         return organizationService.updateOrganization(organization);
     }
 }
