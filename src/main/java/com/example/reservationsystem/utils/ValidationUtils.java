@@ -1,5 +1,6 @@
 package com.example.reservationsystem.utils;
 
+import com.example.reservationsystem.controller.dto.ReservationDto;
 import com.example.reservationsystem.entity.ConferenceRoom;
 import com.example.reservationsystem.entity.RoomEquipment;
 import com.example.reservationsystem.enums.ProjectorInterface;
@@ -53,5 +54,10 @@ public class ValidationUtils {
         }
 
         return true;
+    }
+
+    public static boolean checkReservationRequiredFieldsNotNull(ReservationDto reservationDto) {
+        return reservationDto.getClientId() != null && reservationDto.getRoomName() != null &&
+                reservationDto.getStartDate() != null && reservationDto.getEndDate() != null;
     }
 }

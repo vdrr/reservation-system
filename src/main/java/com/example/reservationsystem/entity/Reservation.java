@@ -12,7 +12,7 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "organization_name")
+    @Column(name = "client_id")
     @NotNull
     private String clientId;
 

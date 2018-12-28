@@ -1,18 +1,19 @@
 package com.example.reservationsystem.service;
 
+import com.example.reservationsystem.controller.dto.ReservationDto;
 import com.example.reservationsystem.entity.Reservation;
 
 import java.util.List;
 
 public interface ReservationService {
 
+    Reservation getReservationById(long id);
+
     List<Reservation> getAllReservations();
 
-    List<Reservation> getAllReservationsForOrganization(long organizationId);
+    List<Reservation> getAllReservationsForRoom(String roomName);
 
-    Reservation addReservation(Reservation reservation);
+    Reservation addReservation(ReservationDto reservation);
 
-    Reservation updateReservation(Reservation reservation);
-
-    void remvoeReservation(long id);
+    void removeReservation(long id);
 }
